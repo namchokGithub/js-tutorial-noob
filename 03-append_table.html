@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./assets/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Jquery -->
+    <script src="./assets/jquery-3.4.1.min.js"></script>
+
+    <title>js!</title>
+</head>
+
+<body>
+    <script>
+        $(() => {
+            //re count row
+            const re_counter = () => {
+                $('tbody tr').each((index, element) => {
+                    $(element).children('th').text(index + 1)
+                })
+            }
+            //re count row
+
+            const row = $('tbody').html() // get row html
+
+            re_counter() // count row on start state
+
+            // event click at add btn
+            $(document).on('click', 'button.btn-primary', (e) => {
+                console.log('Add-btn')
+                $('tbody').append(row)
+                re_counter()
+            })
+            // event click at add btn
+
+            // event click at del btn
+            $(document).on('click', 'button.btn-danger', (e) => {
+                console.log('Del-btn')
+                if ($('tbody tr').length > 1) {
+                    $(e.currentTarget).parents('tr').remove()
+                }
+                re_counter()
+            })
+            // event click at del btn
+        })
+    </script>
+
+    <!-- table -->
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Student Code</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">Designation</th>
+                <th scope="col">Team No</th>
+                <th scope="col">Email</th>
+                <th scope="col">Description</th>
+                <th scope="col"><button type="button" class="btn btn-primary"> + </button></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row"></th>
+                <td> <input type="text" class="form-control"> </td>
+                <td> <input type="text" class="form-control"> </td>
+                <td>
+                    <select class="browser-default custom-select">
+                        <option selected>เลือกตำแหน่ง</option>
+                        <option value="1">Team Lead</option>
+                        <option value="2">Plan</option>
+                        <option value="3">Qa</option>
+                        <option value="4">Support</option>
+                    </select>
+                </td>
+                <td> <input type="text" class="form-control"> </td>
+                <td> <input type="text" class="form-control"> </td>
+                <td>
+                    <textarea class="form-control" rows="3"></textarea>
+                </td>
+                <td><button type="button" class="btn btn-danger"> - </button></td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- table -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="./assets/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="./assets/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="./assets/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
