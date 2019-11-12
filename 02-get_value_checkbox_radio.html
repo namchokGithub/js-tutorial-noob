@@ -19,7 +19,7 @@
     $(document).ready(function () {
         var sum
         var length
-        $('input[type="checkbox"],input[type="radio"]').click(function (e) {
+        $(document).click('input[type="checkbox"],input[type="radio"]',function (e) {
             $('p.n1').text("")
             sum = 0
             length = $('input[type="checkbox"]').filter(':checked').length
